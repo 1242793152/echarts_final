@@ -23,7 +23,7 @@
       var newArr = [height, weight]
       axisData.push(newArr)
     }
-    console.log(axisData)
+    // console.log(axisData)
     var mCharts = echarts.init(document.querySelector("div"))
     var option = {
       xAxis: {
@@ -39,13 +39,17 @@
           // type: 'scatter',
           type: 'effectScatter', // 指明图表为带涟漪动画的散点图
           showEffectOn: 'emphasis', // 出现涟漪动画的时机 render emphasis
-          rippleEffect: {
+          /*
+          render：表示的是每一个散点渲染完成以后都会自动拥有涟漪动画的效果
+          emphasis：当某个散点被鼠标移入时，才会有散点涟漪动画展示
+          */ 
+          rippleEffect: {  //  涟漪动画的配置对象
             scale: 10 // 涟漪动画时, 散点的缩放比例
           },
           data: axisData,
           // symbolSize: 30
-          symbolSize: function (arg) { // 控制散点的大小
-            // console.log(arg)
+          symbolSize: function (arg) { // 控制散点的大小，这个值可以是number值也可以是函数类型值
+            // console.log(arg) 打印出来的是data中的数组内的每一个数组的值
             var height = arg[0] / 100
             var weight = arg[1]
             // bmi = 体重kg / (身高m*身高m)   大于28,就代表肥胖
@@ -57,7 +61,7 @@
           },
           itemStyle: { // 控制散点的样式
             color: function (arg) {
-              // console.log(arg)
+              console.log(arg) //这里打印出来的是一个个配置对象，包含有许多信息
               var height = arg.data[0] / 100
               var weight = arg.data[1]
               // bmi = 体重kg / (身高m*身高m)   大于28,就代表肥胖

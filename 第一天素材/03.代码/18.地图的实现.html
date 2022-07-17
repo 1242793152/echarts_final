@@ -12,7 +12,7 @@
 
 <body>
   <div style="width: 600px;height:400px;border: 1px solid #f00"></div>
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
     //1. ECharts最基本的代码结构
     //2. 准备中国地图的矢量数据
@@ -22,11 +22,12 @@
     var mCharts = echarts.init(document.querySelector("div"))
     $.get('json/map/china.json', function (ret) {
       // ret 就是中国的各个省份的矢量地图数据
-      // console.log(ret)
-      echarts.registerMap('chinaMap', ret)
+      console.log(ret)
+      echarts.registerMap('chinaMap', ret)  // 参数一是取的名字，参数二是数据
+      // 这里的参数一的名字最终将要防止在geo:{map:'参数一'}中
       var option = {
-        geo: {
-          type: 'map',
+        geo: {  //这个geo就类似series，每一个图表类型它的配置对象都不一样
+          type: 'map', // 固定的
           map: 'chinaMap', // chinaMap需要和registerMap中的第一个参数保持一致
           roam: true, // 设置允许缩放以及拖动的效果
           label: {

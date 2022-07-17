@@ -10,6 +10,27 @@
 </head>
 
 <body>
+  <!-- 
+    直角坐标系的图表包括如下:柱状图,折线图,散点图
+
+    配置一:网格grid:
+    作用:grid用来控制直角坐标系的布局和大小
+    x轴和y轴就是再grid的基础上进行绘制
+
+    配置二:坐标轴axis
+    一个grid中最多有俩种位置的x轴和y轴
+
+    坐标轴类型type:
+    value:数值轴,自动会从目标数据中获取数据,即获取series中的data的数据
+    category:类目轴,该类型是通过自身坐标轴的data中设置类目数据
+
+    显示位置:position
+    xAxis:可以设置为top或者bottom
+    yAxis:可以设置为left或right
+
+    配置三:区域缩放dataZoom
+
+   -->
   <div style="width: 600px;height:400px"></div>
   <script>
     var mCharts = echarts.init(document.querySelector("div"))
@@ -18,12 +39,12 @@
     var option = {
       grid: { // 坐标轴容器
         show: true, // 是否可见
-        borderWidth: 10, // 边框的宽度
-        borderColor: 'red', // 边框的颜色
-        left: 120, // 边框的位置
-        top: 120,
-        width: 300, // 边框的大小
-        height: 150
+        // borderWidth: 10, // 边框的宽度
+        // borderColor: 'red', // 边框的颜色
+        // left: 120, // 边框的位置
+        // top: 120,
+        // width: 300, // 边框的大小
+        // height: 150
       },
       xAxis: {
         type: 'category',
