@@ -7,6 +7,7 @@ const app = new Koa()
 app.use((ctx, next) => {
   console.log('第一层中间件...1')
   ctx.response.body = 'hello world'
+  console.log(ctx)
   next()
   console.log('第一层中间件...2')
 })
@@ -23,4 +24,6 @@ app.use((ctx, next) => {
   return 'i love the dog'
 })
 // 3.绑定端口号 3000
-app.listen(3000)
+app.listen(3000,()=>{
+  console.log('server run at http://127.0.0.1:3000')
+})

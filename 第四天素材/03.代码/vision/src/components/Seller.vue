@@ -39,6 +39,7 @@ export default {
           left: 20,
           top: 20
         },
+        // grid是配置直角坐标系的配置选项
         grid: {
           top: '20%',
           left: '3%',
@@ -54,9 +55,10 @@ export default {
         },
         tooltip: {
           trigger: 'axis',
+          // 当鼠标移到坐标轴时所展示的样式
           axisPointer: {
             type: 'line',
-            z: 0,
+            z: 0, //层级级别
             lineStyle: {
               color: '#2D3443'
             }
@@ -65,6 +67,7 @@ export default {
         series: [
           {
             type: 'bar',
+            // 文字显示样式
             label: {
               show: true,
               position: 'right',
@@ -72,9 +75,14 @@ export default {
                 color: 'white'
               }
             },
+            // 柱形图的样式
             itemStyle: {
+              // 柱状图四个角的样式配置
+              /*
+              barBorderRadius:[0,33,33,0] 左上 右上 右下 左下
+              */ 
               // 指明颜色渐变的方向
-              // 指明不同百分比之下颜色的值
+              // 指明不同百分比之下颜色的值，线性渐变对象函数配置，x1,y1,x2,y2
               color: new this.$echarts.graphic.LinearGradient(0, 0, 1, 0, [
                 // 百分之0状态之下的颜色值
                 {

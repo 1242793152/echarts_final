@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div style="width: 600px;height:400px"></div>
+  <div style="width: 900px;height:400px"></div>
   <script>
     var mCharts = echarts.init(document.querySelector("div"))
     var xDataArr = ['张三', '李四', '王五', '闰土', '小明', '茅台', '二妞', '大强']
@@ -42,7 +42,7 @@
           dataView: {}, // 数据视图
           restore: {}, // 重置
           dataZoom: {}, // 区域缩放
-          magicType: {
+          magicType: {  // 图表类型转换
             type: ['bar', 'line']
           } // 动态图表类型的切换
         }

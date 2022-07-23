@@ -37,11 +37,13 @@
       }
     ]
     var option = {
+      // 全局配置颜色
       color: ['red', 'green', 'blue', 'skyblue', 'purple'],
       series: [
         {
           type: 'pie',
           data: pieData,
+          // 局部配置颜色，遵循就近原则，如果有局部的配置颜色就使用局部的配置颜色
           color: ['pink', 'yellow', 'black', 'orange', 'red']
         }
       ]

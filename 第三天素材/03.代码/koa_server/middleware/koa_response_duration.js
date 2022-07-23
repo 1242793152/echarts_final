@@ -8,6 +8,7 @@ module.exports = async (ctx, next) => {
   const end = Date.now()
   // 设置响应头 X-Response-Time
   const duration = end - start
-  // ctx.set 设置响应头
+  console.log(duration)
+  // ctx.set 设置响应头,响应时间
   ctx.set('X-Response-Time', duration + 'ms')
 }

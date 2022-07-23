@@ -10,6 +10,8 @@ module.exports.getFileJsonData = (filePath) => {
       } else {
         // 读取文件成功
         resolve(data)
+        // 这里是不能通过return将结果传递给调用者的，只能通过resole因为其返回的是一个promise实例对象
+        // 异步任务是无法通过return来返回结果的
       }
     })
   })
